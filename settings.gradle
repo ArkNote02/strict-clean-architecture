@@ -1,0 +1,2 @@
+rootProject.name = 'book'
+include 'book-ports', 'book-adapters', 'book-realizers', 'book-boot'

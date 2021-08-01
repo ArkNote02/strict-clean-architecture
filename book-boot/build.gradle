@@ -1,0 +1,14 @@
+plugins {
+    id 'application'
+}
+
+group 'com.github.jiantailang'
+version '1.0.0'
+mainClassName = 'com.github.jiantailang.Application'
+
+dependencies {
+    implementation rootProject, project(':book-ports'), project(':book-adapters'), project(':book-realizers')
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.3'
+}

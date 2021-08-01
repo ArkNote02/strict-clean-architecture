@@ -1,0 +1,9 @@
+group 'com.github.jiantailang'
+version '1.0.0'
+
+dependencies {
+    implementation rootProject, project(':book-ports')
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.3'
+}
