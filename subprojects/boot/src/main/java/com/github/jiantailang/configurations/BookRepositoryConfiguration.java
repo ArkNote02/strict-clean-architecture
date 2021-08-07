@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbTable;
 
-@Configuration
 @RequiredArgsConstructor
+@Configuration
 public class BookRepositoryConfiguration {
 
     private final DynamoDbTable<DynamoDbBook> dynamoDbTable;

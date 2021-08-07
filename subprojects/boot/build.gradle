@@ -13,6 +13,7 @@ dependencies {
     implementation project(':subprojects:realizers:http')
     implementation project(':subprojects:realizers:mysql')
     implementation project(':subprojects:realizers:dynamodb')
+    implementation project(':subprojects:realizers:kafka')
 
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
     implementation 'org.springframework.boot:spring-boot-starter-web:2.5.3'
