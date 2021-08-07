@@ -1,0 +1,19 @@
+plugins {
+    id 'application'
+}
+
+group 'com.github.jiantailang'
+version '1.0.0'
+mainClassName = 'com.github.jiantailang.Application'
+
+dependencies {
+    implementation rootProject
+    implementation project(':subprojects:providers')
+    implementation project(':subprojects:realizers:services')
+    implementation project(':subprojects:realizers:http')
+    implementation project(':subprojects:realizers:mysql')
+    implementation project(':subprojects:realizers:dynamodb')
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.3'
+}

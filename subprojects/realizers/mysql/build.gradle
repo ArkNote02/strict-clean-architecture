@@ -1,0 +1,13 @@
+group 'com.github.jiantailang'
+version '1.0.0'
+
+dependencies {
+    implementation rootProject
+    implementation project(':subprojects:providers')
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.3'
+
+    // https://mvnrepository.com/artifact/software.amazon.awssdk/dynamodb-enhanced
+    testImplementation 'software.amazon.awssdk:dynamodb-enhanced:2.17.9'
+}

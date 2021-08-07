@@ -1,2 +1,7 @@
 rootProject.name = 'book'
-include 'book-ports', 'book-adapters', 'book-realizers', 'book-boot'
+include 'subprojects:providers'
+include 'subprojects:realizers:services'
+include 'subprojects:realizers:http'
+include 'subprojects:realizers:mysql'
+include 'subprojects:realizers:dynamodb'
+include 'subprojects:boot'
