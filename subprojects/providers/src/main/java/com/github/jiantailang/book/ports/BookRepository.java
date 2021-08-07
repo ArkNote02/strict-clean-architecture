@@ -4,5 +4,5 @@ import com.github.jiantailang.book.Book;
 
 public interface BookRepository {
     Book get(long id);
-    void save(Book book);
+    void put(Book book);
 }

@@ -1,33 +1,30 @@
 package com.github.jiantailang.book.adapters;
 
-import com.github.jiantailang.book.Book;
 import com.github.jiantailang.book.BookUseCase;
+import com.github.jiantailang.book.adapters.models.HttpBook;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
 @RequiredArgsConstructor
+@RestController
 public class BookHttpControlAdapter {
 
     private final BookUseCase useCase;
 
-    @GetMapping("/")
-    public String index() {
-        return "Hello world.";
+    @GetMapping("/book/{id}")
+    @ResponseBody
+    public HttpBook get(@PathVariable("id") long id) {
+        return HttpBook.of(useCase.take(id));
     }
 
-    @GetMapping("/take/{id}")
-    public String take(@PathVariable long id) {
-        Book book = useCase.take(id);
-        return book.toString();
-    }
-
-    @PostMapping("/put")
-    public String put(Book book) {
-        useCase.put(book);
-        return "OK";
+    @PutMapping("/book/")
+    public HttpBook put(@RequestBody HttpBook book) {
+        useCase.put(book.toBook());
+        return book;
     }
 }

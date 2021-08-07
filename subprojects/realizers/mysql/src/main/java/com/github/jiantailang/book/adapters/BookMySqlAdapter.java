@@ -11,7 +11,7 @@ public class BookMySqlAdapter implements BookRepository {
     }
 
     @Override
-    public void save(Book book) {
+    public void put(Book book) {
 
     }
 }

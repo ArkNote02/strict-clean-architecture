@@ -6,8 +6,8 @@ import com.github.jiantailang.book.ports.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-@Component
 @RequiredArgsConstructor
+@Component
 public class BookService implements BookUseCase {
 
     private final BookRepository repository;
@@ -19,6 +19,6 @@ public class BookService implements BookUseCase {
 
     @Override
     public void put(Book book) {
-        repository.save(book);
+        repository.put(book);
     }
 }

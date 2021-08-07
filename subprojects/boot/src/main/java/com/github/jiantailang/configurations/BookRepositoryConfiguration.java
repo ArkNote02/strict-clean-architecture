@@ -1,33 +1,30 @@
 package com.github.jiantailang.configurations;
 
-import com.github.jiantailang.book.adapters.BookDynamoDbAdapter;
+import com.github.jiantailang.book.adapters.dynamodb.BookDynamoDbAdapter;
 import com.github.jiantailang.book.adapters.BookMySqlAdapter;
+import com.github.jiantailang.book.adapters.dynamodb.models.DynamoDbBook;
 import com.github.jiantailang.book.ports.BookRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import software.amazon.awssdk.enhanced.dynamodb.DynamoDbTable;
 
 @Configuration
 @RequiredArgsConstructor
-@Slf4j
 public class BookRepositoryConfiguration {
 
-    // If adapter required beans, get from this.
-//    private final ApplicationContext context;
+    private final DynamoDbTable<DynamoDbBook> dynamoDbTable;
 
-    @ConditionalOnProperty(name = "book.repository", havingValue = "mysql", matchIfMissing = true)
-    @Bean
-    public BookRepository mySqlBookAdapter() {
-        log.info("register a bean 'bookMySqlAdapter'");
-        return new BookMySqlAdapter();
-    }
-
-    @ConditionalOnProperty(name = "book.repository", havingValue = "dynamodb")
+    @ConditionalOnProperty(name = "book.repository", havingValue = "dynamodb", matchIfMissing = true)
     @Bean
     public BookRepository dynamoDbBookAdapter() {
-        log.info("register a bean 'bookDynamoDbAdapter'");
-        return new BookDynamoDbAdapter();
+        return new BookDynamoDbAdapter(dynamoDbTable);
+    }
+
+    @ConditionalOnProperty(name = "book.repository", havingValue = "mysql")
+    @Bean
+    public BookRepository mySqlBookAdapter() {
+        return new BookMySqlAdapter();
     }
 }
