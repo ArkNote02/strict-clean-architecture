@@ -3,7 +3,7 @@ package com.github.jiantailang.book.adapters;
 import com.github.jiantailang.book.Book;
 import com.github.jiantailang.book.ports.BookRepository;
 
-public class BookMySqlAdapter implements BookRepository {
+public class MySqlBookAdapter implements BookRepository {
 
     @Override
     public Book get(long id) {

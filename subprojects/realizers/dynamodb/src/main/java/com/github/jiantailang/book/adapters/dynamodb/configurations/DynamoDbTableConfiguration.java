@@ -12,11 +12,10 @@ import software.amazon.awssdk.enhanced.dynamodb.TableSchema;
 @Configuration
 public class DynamoDbTableConfiguration {
 
-    private final static String TABLE_NAME = "book";
     private final DynamoDbEnhancedClient dynamoDbEnhancedClient;
 
     @Bean
     public DynamoDbTable<DynamoDbBook> dynamoDbBookTable() {
-        return dynamoDbEnhancedClient.table(TABLE_NAME, TableSchema.fromBean(DynamoDbBook.class));
+        return dynamoDbEnhancedClient.table("book", TableSchema.fromBean(DynamoDbBook.class));
     }
 }

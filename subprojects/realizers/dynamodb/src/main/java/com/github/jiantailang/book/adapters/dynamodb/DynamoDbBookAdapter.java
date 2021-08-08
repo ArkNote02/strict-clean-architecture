@@ -8,7 +8,7 @@ import software.amazon.awssdk.enhanced.dynamodb.DynamoDbTable;
 import software.amazon.awssdk.enhanced.dynamodb.Key;
 
 @RequiredArgsConstructor
-public class BookDynamoDbAdapter implements BookRepository {
+public class DynamoDbBookAdapter implements BookRepository {
 
     private final DynamoDbTable<DynamoDbBook> dynamoDbBookTable;
 

@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-public class BookHttpControlAdapter {
+public class HttpBookAdapter {
 
     private final BookUseCase useCase;
 
     @GetMapping("/book/{id}")
     @ResponseBody
     public HttpBook get(@PathVariable("id") long id) {
-        return HttpBook.of(useCase.take(id));
+        return HttpBook.of(useCase.get(id));
     }
 
     @PutMapping("/book/")
