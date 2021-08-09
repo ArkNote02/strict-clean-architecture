@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-archivesBaseName = 'book-serivices'
+archivesBaseName = 'book-twitter'
 
 dependencies {
     implementation rootProject
