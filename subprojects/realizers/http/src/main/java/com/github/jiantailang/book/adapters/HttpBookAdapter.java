@@ -3,6 +3,7 @@ package com.github.jiantailang.book.adapters;
 import com.github.jiantailang.book.BookUseCase;
 import com.github.jiantailang.book.adapters.models.HttpBook;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -25,6 +26,12 @@ public class HttpBookAdapter {
     @PutMapping("/book/")
     public HttpBook put(@RequestBody HttpBook book) {
         useCase.put(book.toBook());
+        return book;
+    }
+
+    @DeleteMapping("/book/")
+    public HttpBook delete(@RequestBody HttpBook book) {
+        useCase.delete(book.getId());
         return book;
     }
 }

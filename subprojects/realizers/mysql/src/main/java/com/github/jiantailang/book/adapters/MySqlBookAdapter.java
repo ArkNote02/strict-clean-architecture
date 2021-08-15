@@ -14,4 +14,9 @@ public class MySqlBookAdapter implements BookRepository {
     public void put(Book book) {
 
     }
+
+    @Override
+    public Book delete(long id) {
+        return null;
+    }
 }

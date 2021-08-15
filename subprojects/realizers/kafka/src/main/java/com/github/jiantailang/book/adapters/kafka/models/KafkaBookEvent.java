@@ -1,7 +1,7 @@
 package com.github.jiantailang.book.adapters.kafka.models;
 
 import com.github.jiantailang.book.Book;
-import com.github.jiantailang.book.BookEvent;
+import com.github.jiantailang.book.Event;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +18,7 @@ public class KafkaBookEvent {
     private String title;
     private long authorId;
 
-    public static KafkaBookEvent of(BookEvent event, Book book) {
+    public static KafkaBookEvent of(Event event, Book book) {
         return KafkaBookEvent.builder()
                 .event(event.name())
                 .id(book.getId())

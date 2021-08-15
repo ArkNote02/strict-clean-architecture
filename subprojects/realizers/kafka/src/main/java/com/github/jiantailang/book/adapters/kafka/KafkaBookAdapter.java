@@ -1,7 +1,7 @@
 package com.github.jiantailang.book.adapters.kafka;
 
 import com.github.jiantailang.book.Book;
-import com.github.jiantailang.book.BookEvent;
+import com.github.jiantailang.book.Event;
 import com.github.jiantailang.book.adapters.kafka.models.KafkaBookEvent;
 import com.github.jiantailang.book.ports.BookEventPublisher;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +19,7 @@ public class KafkaBookAdapter implements BookEventPublisher {
     private final KafkaTemplate<String, KafkaBookEvent> kafkaTemplate;
 
     @Override
-    public void publish(BookEvent event, Book book) {
+    public void publish(Event event, Book book) {
         kafkaTemplate.send(bookEventTopic.name(), KafkaBookEvent.of(event, book));
     }
 }

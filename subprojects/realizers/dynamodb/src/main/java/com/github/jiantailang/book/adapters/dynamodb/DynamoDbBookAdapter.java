@@ -25,4 +25,13 @@ public class DynamoDbBookAdapter implements BookRepository {
     public void put(Book book) {
         dynamoDbBookTable.putItem(DynamoDbBook.of(book));
     }
+
+    @Override
+    public Book delete(long id) {
+        DynamoDbBook dynamoDbBook = dynamoDbBookTable.deleteItem(
+                Key.builder()
+                        .partitionValue(id)
+                        .build());
+        return dynamoDbBook.toBook();
+    }
 }

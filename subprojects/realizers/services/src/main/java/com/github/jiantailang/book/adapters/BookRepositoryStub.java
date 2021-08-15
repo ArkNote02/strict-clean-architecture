@@ -20,4 +20,9 @@ public class BookRepositoryStub implements BookRepository {
     public void put(Book book) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public Book delete(long id) {
+        throw new UnsupportedOperationException();
+    }
 }
